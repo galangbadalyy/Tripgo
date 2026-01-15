@@ -1,0 +1,221 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Tentang Kami - TripGo{% endblock %}
+
+{% block content %}
+
+<div class="font-sans antialiased">
+
+    <section class="relative py-20 lg:py-24 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 overflow-hidden">
+
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M0 40L40 0H20L0 20M40 40V20L20 40" stroke="white" stroke-width="1" fill="none" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+            </svg>
+        </div>
+
+        <div
+            class="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20">
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+                <div>
+                    <span
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-800/50 border border-blue-700 text-blue-200 text-xs font-semibold tracking-wide uppercase mb-6 backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                        Platform Travel Terintegrasi
+                    </span>
+
+                    <h2
+                        class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+                        Jelajahi Dunia Tanpa <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-cyan-300">Batas &
+                            Hambatan</span>
+                    </h2>
+
+                    <p class="text-lg text-blue-100 leading-relaxed mb-8 max-w-xl">
+                        TripGo menyatukan tiket <strong>Pesawat, Kereta Api, dan Bus</strong> dalam satu aplikasi
+                        cerdas. Kami mendigitalkan pengalaman perjalanan Anda dari keberangkatan hingga tujuan.
+                    </p>
+
+                    <div class="grid grid-cols-3 gap-4 mb-8">
+                        <div
+                            class="bg-white/10 backdrop-blur-md border border-white/10 rounded-xl p-4 text-center hover:bg-white/20 transition duration-300">
+                            <svg class="w-8 h-8 mx-auto text-blue-300 mb-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                            </svg>
+                            <p class="text-white text-sm font-semibold">Pesawat</p>
+                        </div>
+                        <div
+                            class="bg-white/10 backdrop-blur-md border border-white/10 rounded-xl p-4 text-center hover:bg-white/20 transition duration-300">
+                            <svg class="w-8 h-8 mx-auto text-blue-300 mb-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 19a2 2 0 01-2 2H7a2 2 0 01-2-2m14 0l-2-2H7l-2 2m14 0V9a2 2 0 00-2-2M5 19V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                                </path>
+                            </svg>
+                            <p class="text-white text-sm font-semibold">Kereta</p>
+                        </div>
+                        <div
+                            class="bg-white/10 backdrop-blur-md border border-white/10 rounded-xl p-4 text-center hover:bg-white/20 transition duration-300">
+                            <svg class="w-8 h-8 mx-auto text-blue-300 mb-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                            </svg>
+                            <p class="text-white text-sm font-semibold">Bus & Shuttle</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
+                        <img src="{% static 'img/banner.jpg' %}" alt="TripGo Travel Experience"
+                            class="w-full h-[500px] object-cover object-center transform hover:scale-105 transition duration-700">
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
+                        </div>
+
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <p class="text-sm font-light opacity-90">Partner Resmi</p>
+                            <p class="text-xl font-bold">KAI, Garuda, & 100+ PO Bus</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="absolute -top-6 -right-6 bg-yellow-400 text-blue-900 p-4 rounded-xl shadow-xl transform rotate-3 hidden md:block">
+                        <p class="font-bold text-lg">#1 Travel App</p>
+                        <p class="text-xs font-semibold opacity-75">Pilihan Milenial</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div
+                class="relative mt-16 bg-white rounded-2xl shadow-xl p-8 transform md:translate-y-16 border border-gray-100 z-20">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-gray-100">
+                    <div class="p-2">
+                        <p class="text-3xl lg:text-4xl font-extrabold text-blue-800 mb-1">50+</p>
+                        <p class="text-xs lg:text-sm font-medium text-gray-500 uppercase tracking-wider">Maskapai</p>
+                    </div>
+                    <div class="p-2">
+                        <p class="text-3xl lg:text-4xl font-extrabold text-blue-800 mb-1">200+</p>
+                        <p class="text-xs lg:text-sm font-medium text-gray-500 uppercase tracking-wider">Operator Bus
+                        </p>
+                    </div>
+                    <div class="p-2">
+                        <p class="text-3xl lg:text-4xl font-extrabold text-blue-800 mb-1">100%</p>
+                        <p class="text-xs lg:text-sm font-medium text-gray-500 uppercase tracking-wider">Garansi Resmi
+                        </p>
+                    </div>
+                    <div class="p-2 border-none">
+                        <p class="text-3xl lg:text-4xl font-extrabold text-blue-800 mb-1">24/7</p>
+                        <p class="text-xs lg:text-sm font-medium text-gray-500 uppercase tracking-wider">CS Support</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-24 pt-32 lg:pt-48 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-16">
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    The Minds Behind TripGo
+                </h3>
+                <p class="text-gray-600  mx-auto text-lg">
+                    Kami adalah tim insinyur, desainer, dan pelancong yang berdedikasi untuk menyederhanakan cara Anda
+                    bepergian.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <div
+                    class="group bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="{% static 'img/team/galang.jpeg' %}" alt="Galang"
+                            class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                            <span class="text-white font-medium text-sm">"Inovasi adalah DNA kami"</span>
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-bold text-gray-900">M. Galang Badaly</h4>
+                        <p class="text-blue-600 font-medium text-sm uppercase tracking-wide mt-1">Chief Executive
+                            Officer</p>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="{% static 'img/team/ramdan.jpeg' %}" alt="Ramdan"
+                            class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                            <span class="text-white font-medium text-sm">"Keamanan sistem prioritas #1"</span>
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-bold text-gray-900">Ramdhan Alfarisi</h4>
+                        <p class="text-blue-600 font-medium text-sm uppercase tracking-wide mt-1">Chief Technology
+                            Officer</p>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="{% static 'img/team/nasya.jpeg' %}" alt="Nasya"
+                            class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                            <span class="text-white font-medium text-sm">"Kepuasan pengguna adalah kunci"</span>
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-bold text-gray-900">Nasya Awaliyah
+                        </h4>
+                        <p class="text-blue-600 font-medium text-sm uppercase tracking-wide mt-1">Chief Operating
+                            Officer</p>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="{% static 'img/team/claudia.jpeg' %}" alt="Klaudia"
+                            class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                            <span class="text-white font-medium text-sm">"Menghubungkan cerita & perjalanan"</span>
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-bold text-gray-900">Klaudia Weda</h4>
+                        <p class="text-blue-600 font-medium text-sm uppercase tracking-wide mt-1">Chief Marketing
+                            Officer</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</div>
+
+{% endblock %}

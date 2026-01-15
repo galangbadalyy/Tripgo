@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}TripGo - Travel Booking{% endblock %}</title>
+
+    <!-- Tailwind CSS + Flowbite -->
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body class="bg-gray-50">
+    {% block navbar%}
+    {% include 'includes/navbar.html' %}
+    {% endblock %}
+    
+    {% block hero_section %}{% endblock %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {% include 'includes/footer.html' %}
+
+    <!-- Global JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.2.0/dist/flowbite.min.js"></script>
+    <script src="{% static 'js/navbar.js' %}"></script>
+
+    <!-- Page specific JS -->
+    {% block extra_js %}
+    <script src="{% static 'js/core/home.js' %}"></script>
+    <script src="{% static 'js/pesawat/home.js' %}"></script>
+    <script src="{% static 'js/pesawat/search.js' %}"></script>
+    {% endblock %}
+</body>
+
+
+</html>

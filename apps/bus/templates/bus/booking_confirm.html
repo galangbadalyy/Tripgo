@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Booking Berhasil - TripGo Bus{% endblock %}
+
+{% block content %}
+<div class="bg-slate-50 min-h-screen pb-20">
+    
+    <div class="relative h-[250px] sm:h-[300px] w-full bg-slate-900">
+        <div class="absolute inset-0 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069&auto=format&fit=crop" 
+                 alt="Bus Background" class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent"></div>
+        </div>
+        
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-white pb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">Pemesanan Diterima!</h1>
+            <p class="text-slate-300 text-sm md:text-base">Terima kasih telah memilih perjalanan bus bersama kami.</p>
+        </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 relative z-10">
+        
+        <div class="bg-white rounded-3xl shadow-xl shadow-slate-200/50 overflow-hidden border border-slate-100 print:shadow-none print:border-2">
+            
+            <div class="bg-white pt-8 pb-6 text-center">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-emerald-100 rounded-full mb-4 animate-scale-up">
+                    <i class="fas fa-check text-emerald-500 text-4xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800">Pembayaran Menunggu Konfirmasi</h2>
+                <p class="text-slate-500 mt-1">Kode booking Anda telah diterbitkan.</p>
+            </div>
+
+            <div class="px-6 md:px-10 pb-10">
+                
+                <div class="bg-slate-50 border border-dashed border-slate-300 rounded-xl p-6 mb-8 text-center relative group">
+                    <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold mb-1">Kode Booking (PNR)</p>
+                    <span class="text-3xl font-mono font-bold text-green-600 tracking-wide select-all">
+                        #BUS{{ booking_data.bus_id }}{{booking_data.num_passengers }}TGO
+                    </span>
+                    <div class="absolute w-4 h-4 bg-white rounded-full -left-2 top-1/2 -translate-y-1/2 border-r border-slate-300"></div>
+                    <div class="absolute w-4 h-4 bg-white rounded-full -right-2 top-1/2 -translate-y-1/2 border-l border-slate-300"></div>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 border-b border-slate-100 pb-2">Informasi Kontak</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center text-green-600 flex-shrink-0">
+                                <i class="fas fa-user text-xs"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium">Nama Pemesan</p>
+                                <p class="font-bold text-slate-700">{{ booking_data.contact_name }}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center text-green-600 flex-shrink-0">
+                                <i class="fas fa-envelope text-xs"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium">Email</p>
+                                <p class="font-bold text-slate-700">{{ booking_data.contact_email }}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center text-green-600 flex-shrink-0">
+                                <i class="fas fa-phone text-xs"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium">Nomor Telepon</p>
+                                <p class="font-bold text-slate-700">{{ booking_data.contact_phone }}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center text-green-600 flex-shrink-0">
+                                <i class="fas fa-users text-xs"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium">Total Penumpang</p>
+                                <p class="font-bold text-slate-700">{{ booking_data.num_passengers }} Orang</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-8">
+                    <h3 class="font-bold text-amber-800 mb-3 flex items-center gap-2">
+                        <i class="fas fa-info-circle"></i> Langkah Selanjutnya
+                    </h3>
+                    <ul class="space-y-2 text-sm text-amber-900/80">
+                        <li class="flex items-start gap-2">
+                            <span class="font-bold bg-amber-200 w-5 h-5 rounded-full flex items-center justify-center text-[10px] text-amber-800 mt-0.5">1</span>
+                            <span>Cek email Anda untuk Invoice dan instruksi pembayaran.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="font-bold bg-amber-200 w-5 h-5 rounded-full flex items-center justify-center text-[10px] text-amber-800 mt-0.5">2</span>
+                            <span>Selesaikan pembayaran sebelum batas waktu yang ditentukan.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="font-bold bg-amber-200 w-5 h-5 rounded-full flex items-center justify-center text-[10px] text-amber-800 mt-0.5">3</span>
+                            <span>Tunjukkan E-Tiket / Kode Booking di Terminal/Pool untuk Check-in.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 no-print">
+                    <a href="{% url 'bus:home' %}"
+                        class="flex-1 px-6 py-3 bg-white border border-slate-200 hover:border-green-500 hover:text-green-600 text-slate-600 font-bold rounded-xl transition text-center shadow-sm">
+                        Kembali ke Beranda
+                    </a>
+                    <button onclick="window.print()"
+                        class="flex-1 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl transition text-center shadow-lg shadow-green-600/30 flex items-center justify-center gap-2">
+                        <i class="fas fa-print"></i> Cetak Bukti Booking
+                    </button>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-slate-100 text-center no-print">
+                    <p class="text-xs text-slate-400 mb-3">Ada kendala dengan pesanan ini?</p>
+                    <div class="flex items-center justify-center gap-6">
+                        <a href="#" class="text-slate-500 hover:text-green-600 text-sm font-medium transition flex items-center gap-2">
+                            <i class="fas fa-headset"></i> CS TripGo Bus
+                        </a>
+                        <a href="#" class="text-slate-500 hover:text-green-600 text-sm font-medium transition flex items-center gap-2">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="text-center mt-8 text-slate-400 text-sm no-print">
+            &copy; {% now "Y" %} TripGo - Layanan Pemesanan Tiket Bus.
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Animasi Centang */
+    @keyframes scale-up {
+        0% { transform: scale(0); opacity: 0; }
+        60% { transform: scale(1.1); }
+        100% { transform: scale(1); opacity: 1; }
+    }
+    .animate-scale-up {
+        animation: scale-up 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    /* Print Styles */
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+        .bg-slate-50 {
+            background: white !important;
+        }
+        /* Sembunyikan elemen navigasi dan dekorasi */
+        .no-print, nav, header, footer, .bg-slate-900 {
+            display: none !important;
+        }
+        /* Tampilkan hanya kartu tiket */
+        .max-w-3xl, .max-w-3xl * {
+            visibility: visible;
+        }
+        .max-w-3xl {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            margin: 0 !important;
+            box-shadow: none !important;
+        }
+    }
+</style>
+{% endblock %}

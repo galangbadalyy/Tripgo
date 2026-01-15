@@ -1,0 +1,162 @@
+{% load static %}
+
+<div class="relative bg-gray-50 pb-12">
+
+    <div class="relative h-[500px] md:h-[600px] w-full overflow-hidden">
+        
+        <div class="absolute inset-0">
+            <img src="{% static 'img/pesawat.jpg' %}" 
+                 alt="Penerbangan" 
+                 class="w-full h-full object-cover object-center transform scale-105">
+        </div>
+
+        <div class="absolute inset-0 bg-slate-900/50"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-50/90 via-slate-900/20 to-slate-900/40"></div>
+
+        <div class="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col pt-24 md:pt-32 items-center text-center z-10">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-600/20 border border-blue-400/30 backdrop-blur-md mb-6 animate-fade-in-down">
+                <i class="fas fa-plane-departure text-blue-300 text-xs"></i>
+                <span class="text-blue-100 text-xs font-bold tracking-widest uppercase">TripGo Flight</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-xl mb-4">
+                Terbang Lebih Jauh, <br class="hidden sm:block">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-white to-blue-300">
+                    Bayar Lebih Hemat
+                </span>
+            </h1>
+
+            <p class="text-lg text-blue-100 font-light leading-relaxed drop-shadow-md">
+                Akses ribuan rute penerbangan domestik dan internasional dengan harga terbaik hanya di TripGo.
+            </p>
+        </div>
+    </div>
+
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 md:-mt-40 z-20">
+        <div class="bg-white rounded-3xl shadow-2xl shadow-slate-900/10 p-6 sm:p-8 border border-slate-100 relative overflow-hidden">
+            
+            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-500"></div>
+
+            <form id="pesawat-form" action="{% url 'pesawat:flight_search' %}" method="GET">
+                <div class="flex flex-wrap items-center justify-between mb-6 pb-6 border-b border-slate-100">
+                    
+                    <div class="flex items-center space-x-6">
+                        <label class="inline-flex items-center cursor-pointer group">
+                            <input type="radio" name="trip_type" value="one-way" checked
+                                class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 cursor-pointer">
+                            <span class="ml-2 text-sm font-bold text-slate-700 group-hover:text-blue-600 transition-colors">Sekali Jalan</span>
+                        </label>
+                        <label class="inline-flex items-center cursor-pointer group">
+                            <input type="radio" name="trip_type" value="round-trip"
+                                class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 cursor-pointer">
+                            <span class="ml-2 text-sm font-medium text-slate-500 group-hover:text-blue-600 transition-colors">Pulang Pergi</span>
+                        </label>
+                    </div>
+
+                    <div class="hidden sm:flex items-center text-xs text-blue-600 font-semibold bg-blue-50 px-3 py-1 rounded-full cursor-pointer hover:bg-blue-100 transition">
+                        <i class="fas fa-tag mr-2"></i> Promo Spesial Tersedia
+                    </div>
+                </div>
+
+                <div class="space-y-5">
+
+                    <div class="grid grid-cols-1 md:grid-cols-11 gap-4 items-end relative">
+                        
+                        <div class="md:col-span-5 relative group">
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5 ml-1">Dari</label>
+                            <div class="flex items-center bg-slate-50 border border-slate-200 rounded-xl px-4 h-[56px] hover:border-blue-400 hover:bg-white hover:shadow-md transition-all duration-200 focus-within:ring-2 focus-within:ring-blue-100 focus-within:border-blue-500 focus-within:bg-white focus-within:shadow-lg">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3 text-blue-600 flex-shrink-0">
+                                    <i class="fas fa-plane-departure text-sm"></i>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-[10px] text-slate-400 leading-none mb-0.5">Kota Asal</p>
+                                    <input type="text" name="asal" placeholder="Jakarta (CGK)" 
+                                        class="w-full bg-transparent border-none p-0 text-slate-900 font-bold placeholder-slate-300 focus:ring-0 text-base leading-tight truncate">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="md:col-span-1 flex justify-center items-center md:pb-2 z-10">
+                            <button type="button" id="swap-locations"
+                                class="bg-white hover:bg-blue-50 p-2.5 rounded-full text-slate-400 hover:text-blue-600 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 transform hover:rotate-180">
+                                <i class="fas fa-exchange-alt rotate-90 md:rotate-0"></i>
+                            </button>
+                        </div>
+
+                        <div class="md:col-span-5 relative group">
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5 ml-1">Ke</label>
+                            <div class="flex items-center bg-slate-50 border border-slate-200 rounded-xl px-4 h-[56px] hover:border-blue-400 hover:bg-white hover:shadow-md transition-all duration-200 focus-within:ring-2 focus-within:ring-blue-100 focus-within:border-blue-500 focus-within:bg-white focus-within:shadow-lg">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3 text-blue-600 flex-shrink-0">
+                                    <i class="fas fa-plane-arrival text-sm"></i>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-[10px] text-slate-400 leading-none mb-0.5">Kota Tujuan</p>
+                                    <input type="text" name="tujuan" placeholder="Denpasar (DPS)" 
+                                        class="w-full bg-transparent border-none p-0 text-slate-900 font-bold placeholder-slate-300 focus:ring-0 text-base leading-tight truncate">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
+
+                        <div class="w-full">
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5 ml-1">Pergi</label>
+                            <div class="flex items-center bg-slate-50 border border-slate-200 rounded-xl px-4 h-[56px] hover:border-blue-400 hover:bg-white hover:shadow-md transition-all focus-within:ring-2 focus-within:ring-blue-100 focus-within:border-blue-500 focus-within:bg-white">
+                                <i class="fas fa-calendar-alt text-slate-400 mr-3 text-lg"></i>
+                                <div class="flex-1">
+                                    <p class="text-[10px] text-slate-400 leading-none mb-0.5">Tanggal</p>
+                                    <input type="date" name="tanggal" 
+                                        class="w-full bg-transparent border-none p-0 text-slate-900 font-bold focus:ring-0 text-sm leading-tight cursor-pointer">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-full">
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5 ml-1">Penumpang</label>
+                            <div class="flex items-center bg-slate-50 border border-slate-200 rounded-xl px-4 h-[56px] hover:border-blue-400 hover:bg-white hover:shadow-md transition-all focus-within:ring-2 focus-within:ring-blue-100 focus-within:border-blue-500 focus-within:bg-white">
+                                <i class="fas fa-user-friends text-slate-400 mr-3 text-lg"></i>
+                                <div class="flex-1">
+                                    <p class="text-[10px] text-slate-400 leading-none mb-0.5">Jumlah</p>
+                                    <select name="passenger" class="w-full bg-transparent border-none p-0 text-slate-900 font-bold focus:ring-0 text-sm cursor-pointer">
+                                        <option value="1">1 Orang</option>
+                                        <option value="2">2 Orang</option>
+                                        <option value="3">3 Orang</option>
+                                        <option value="4">4 Orang</option>
+                                        <option value="5">5+ Orang</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-full">
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5 ml-1">Kelas</label>
+                            <div class="flex items-center bg-slate-50 border border-slate-200 rounded-xl px-4 h-[56px] hover:border-blue-400 hover:bg-white hover:shadow-md transition-all focus-within:ring-2 focus-within:ring-blue-100 focus-within:border-blue-500 focus-within:bg-white">
+                                <i class="fas fa-crown text-slate-400 mr-3 text-lg"></i>
+                                <div class="flex-1">
+                                    <p class="text-[10px] text-slate-400 leading-none mb-0.5">Kabin</p>
+                                    <select name="class" class="w-full bg-transparent border-none p-0 text-slate-900 font-bold focus:ring-0 text-sm cursor-pointer">
+                                        <option value="Economy">Ekonomi</option>
+                                        <option value="Business">Bisnis</option>
+                                        <option value="First">First Class</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-full">
+                            <label class="block text-[10px] font-bold text-transparent uppercase tracking-wider mb-1.5 ml-1 select-none">Action</label>
+                            <button type="submit"
+                                class="w-full h-[56px] bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 group">
+                                <i class="fas fa-search group-hover:scale-110 transition-transform"></i>
+                                <span>Cari Tiket</span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
